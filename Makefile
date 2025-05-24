@@ -4,7 +4,7 @@ CONFIG ?= ./scripts_config/bluetooth_ctl.yaml
 
 # Build the binary
 build:
-	go build -o xofikit ./cmd/xofikit/main.go
+	@go build -o xofikit ./cmd/xofikit/main.go
 
 # Run with provided config or default
 run:
@@ -21,7 +21,8 @@ install:
 	@chmod +x ./xofikit
 	@echo "[INFO] Moving binary to ~/.local/bin..."
 	@mkdir -p ~/.local/bin
-	@mv ./xofikit ~/.local/bin/
+	@cp ./xofikit ~/.local/bin/
+	@sudo mv ./xofikit /usr/bin/
 
 	@echo "[INFO] Copying scripts_config to ~/.config/xofikit..."
 	@mkdir -p ~/.config/xofikit

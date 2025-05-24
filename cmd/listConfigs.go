@@ -15,14 +15,15 @@ import (
 // listConfigsCmd represents the listConfigs command
 var listConfigsCmd = &cobra.Command{
 	Use:   "list-configs",
-	Short: "List available config YAML files at default location",
+	Short: "List available config YAML files",
 	RunE: func(cmd *cobra.Command, args []string) error {
 
+		configDir := filepath.Join(os.Getenv("HOME"), ".config", "xofikit", "scripts_config")
+
 		newScriptsConfigPath, err := cmd.Flags().GetString("scripts-path")
-		configDir := filepath.Join(os.Getenv("HOME"), ".config", "xofikit")
 
 		if err != nil {
-			fmt.Errorf("Invalid file path %w", newScriptsConfigPath)
+			return fmt.Errorf(`Invalid file path %s`, newScriptsConfigPath)
 		} else {
 			configDir = newScriptsConfigPath
 		}

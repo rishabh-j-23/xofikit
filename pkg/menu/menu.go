@@ -35,24 +35,6 @@ func LoadConfig(path string) (*Config, error) {
 	return &cfg, nil
 }
 
-func (c *Config) CodeForLabel(label string) (string, bool) {
-	for _, opt := range c.Options {
-		if opt.Label == label {
-			return opt.Code, true
-		}
-	}
-	return "", false
-}
-
-func (c *Config) CommandForCode(code string) (string, bool) {
-	for _, opt := range c.Options {
-		if opt.Code == code {
-			return opt.Command, true
-		}
-	}
-	return "", false
-}
-
 func ShowMenu(cfg *Config) (Option, error) {
 	options := cfg.Options
 	prompt := cfg.Prompt

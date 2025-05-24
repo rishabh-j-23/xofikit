@@ -1,0 +1,22 @@
+prompt: "bluetooth_ctl"
+options:
+  - code: "pon"
+    label: "power on bluetooth"
+    command: "bluetoothctl power on"
+  - code: "pof"
+    label: "power off bluetooth"
+    command: "bluetoothctl power off"
+  - code: "con"
+    label: "connect all devices"
+    command: "timeout 5s bash -c 'bluetoothctl devices | awk \"{print \\$2}\" | while read -r mac; do bluetoothctl connect \"$mac\"; done'"
+  - code: disall
+    label: Disconnect all Bluetooth devices
+    command: |
+      timeout 5 bash -c '
+        bluetoothctl devices | awk "{print \$2}" | while read -r mac; do
+          bluetoothctl disconnect "$mac"
+        done
+      '
+  - code: "gui"
+    label: "bluetooth gui"
+    command: "blueman-manager &"

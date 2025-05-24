@@ -1,0 +1,18 @@
+prompts: "test"
+options: 
+  - code: "main"
+    label: "Parent"
+    suboptions: 
+      - code: "sub1"
+        label: "child 1"
+        command: |
+          date
+      - code: "sub2"
+        label: "child 2"
+        command: |
+          date
+        suboptions:
+          - code: "sub3"
+            label: "child 3"
+            command: |
+              date

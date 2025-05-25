@@ -1,4 +1,4 @@
-prompt: "Launch Selected File"
+prompt: "launch_with"
 options:
   - code: "nvim"
     label: "Open with Neovim"
@@ -10,22 +10,22 @@ options:
     command: |
       file=$(cat /tmp/xofikit.file.launch.tmp)
       feh "$file"
-  - code: "zathura"
-    label: "View PDF with Zathura"
-    command: |
-      file=$(cat /tmp/xofikit.file.launch.tmp)
-      zathura "$file"
+  # - code: "zathura"
+  #   label: "View PDF with Zathura"
+  #   command: |
+  #     file=$(cat /tmp/xofikit.file.launch.tmp)
+  #     zathura "$file"
   - code: "mpv"
     label: "Play with mpv (Audio/Video)"
     command: |
       file=$(cat /tmp/xofikit.file.launch.tmp)
       mpv "$file"
-  - code: "file-roller"
+  - code: "expl"
     label: "Extract with File Roller (Archives)"
     command: |
       file=$(cat /tmp/xofikit.file.launch.tmp)
       file-roller "$file"
-  - code: "xdg-open"
+  - code: "def"
     label: "Open with default app"
     command: |
       file=$(cat /tmp/xofikit.file.launch.tmp)

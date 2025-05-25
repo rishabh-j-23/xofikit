@@ -6,11 +6,11 @@ xofikit is a CLI utility that enables interactive shell script execution through
 
 ## Features
 
-* Define menus and nested submenus using YAML
-* Run commands via a Rofi-powered interface
-* Support for multiple configuration files
-* Easily extendable with new scripts and options
-* Integration-ready with tiling window managers like Hyprland, i3, and others
+* Define menus and nested submenus using YAML  
+* Run commands via a Rofi-powered interface  
+* Support for multiple configuration files  
+* Easily extendable with new scripts and options  
+* Integration-ready with tiling window managers like Hyprland, i3, and others  
 
 ---
 
@@ -18,9 +18,9 @@ xofikit is a CLI utility that enables interactive shell script execution through
 
 ### Prerequisites
 
-* Go (version 1.21 or higher)
-* Rofi
-* make
+* Go (version 1.21 or higher)  
+* Rofi  
+* make  
 
 ### Steps
 
@@ -28,7 +28,7 @@ xofikit is a CLI utility that enables interactive shell script execution through
 git clone https://github.com/rishabh-j-23/xofikit.git
 cd xofikit
 make install
-```
+````
 
 ---
 
@@ -77,7 +77,7 @@ options:
 | `command`    | Shell command to be executed when the option is selected |
 | `suboptions` | A list of more options, forming a nested submenu         |
 
-> [!NOTE]
+> \[!NOTE]
 > In case of suboptions menu, command for parent option won't execute.
 
 ### Tips
@@ -103,6 +103,36 @@ options:
         command: |
             bluetoothctl power off
 ```
+
+---
+
+## Running Config Files
+
+After installation, you can run xofikit with any YAML configuration file to display the interactive menu.
+
+### Basic Run Command
+
+```bash
+xofikit run /path/to/your/config.yaml
+```
+
+For example, to run the Bluetooth control config:
+
+```bash
+xofikit run ~/.config/xofikit/scripts_config/bluetooth_ctl.yaml
+```
+
+This will launch the Rofi menu based on the YAML and let you interactively choose options.
+
+### Binding to a Hotkey
+
+You can bind xofikit commands to your window manager or compositor’s keybindings to quickly launch menus. For example, in Hyprland:
+
+```
+bind = $mainMod, B, exec, xofikit run ~/.config/xofikit/scripts_config/bluetooth_ctl.yaml
+```
+
+Make sure xofikit and your config file are accessible by the environment where the hotkey runs.
 
 ---
 

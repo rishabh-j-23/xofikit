@@ -77,6 +77,10 @@ options:
 | `command`    | Shell command to be executed when the option is selected |
 | `suboptions` | A list of more options, forming a nested submenu         |
 
+```[!NOTE]
+In case of suboptions menu command for parent option won't execute
+```
+
 ### Tips
 
 * Use `|` after `command:` for multi-line shell commands.

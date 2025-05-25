@@ -1,0 +1,20 @@
+prompt: "search"
+options:
+  - code: "fs"
+    label: "file search (Rofi)"
+    command: |
+      cd ~
+      file=$(find . -type f 2>/dev/null | rofi -dmenu -p "Open file:")
+      [ -n "$file" ] && xdg-open "$file"
+  - code: "pst"
+    label: "open project in tmux"
+    command: |
+      cd ~/devspace/
+      dir=$(find . -type d | sed 's|^\./||' | rofi -dmenu -p "Open project:")
+      [ -z "$dir" ] && exit
+      session_name=$(basename "$dir")
+      if tmux has-session -t "$session_name" 2>/dev/null; then
+        tmux attach-session -t "$session_name"
+      else
+        tmux new-session -c "$dir" -s "$session_name"
+      fi

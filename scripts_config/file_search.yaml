@@ -1,18 +1,10 @@
-prompt: "search"
+prompt: "file-search"
 options:
-  - code: "pst"
-    label: "open project in tmux"
+  - code: "sf"
+    label: "browse and open file"
     command: |
-      cd ~/devspace/
-      dir=$(find . -type d | sed 's|^\./||' | rofi -dmenu -p "open project:")
-      [ -z "$dir" ] && exit
-      full_path="$(realpath "$dir")"
-      session_name=$(basename "$dir")
-      alacritty -e sh -c '
-        cd "$0"
-        if tmux has-session -t "$1" 2>/dev/null; then
-          exec tmux attach-session -t "$1"
-        else
-          exec tmux new-session -c "$0" -s "$1"
-        fi
-      ' "$full_path" "$session_name"
+      cd ~
+      file=$(find . -type f 2>/dev/null | sed 's|^\./||' | rofi -dmenu -p "Select file:")
+      [ -z "$file" ] && exit
+      echo $file > /tmp/xofikit.file.launch.tmp
+      xofikit run ~/.config/xofikit/scripts_config/launcher.yaml

@@ -49,7 +49,7 @@ func ShowMenu(cfg *Config) (Option, error) {
 			codeMap[opt.Code] = opt
 		}
 
-		cmd := exec.Command("rofi", "-dmenu", "-p", prompt)
+		cmd := exec.Command("rofi", "-dmenu", "-p", "-auto-select", prompt)
 		cmd.Stdin = strings.NewReader(strings.Join(labels, "\n"))
 		out, err := cmd.Output()
 		if err != nil {

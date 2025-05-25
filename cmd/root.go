@@ -12,13 +12,11 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "xofikit",
-	Short: "xofikit is used to create menus using rofi, ",
-	Long: `xofikit aims to create a menu using the existing rofi like programs.
-The commands and labels are defined in the yaml which are parsed by xofikit
-to create a rofi dmenu with those commands.
-xofikit supports nested menus by default so you can create a parent menu and 
-and child commands.
-	`,
+	Short: "xofikit is used to create menus using rofi",
+	Long: `
+xofikit is a CLI utility that enables interactive shell script execution through Rofi using YAML-based
+configuration files. It allows users to quickly trigger scripts via a menu interface, making it ideal 
+for system actions, quick toggles, and workflow shortcuts.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },

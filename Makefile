@@ -15,6 +15,8 @@ clean:
 	rm -f xofikit
 
 install:
+	@echo "Downloading dependencies"
+	@go mod tidy
 	@echo "[INFO] Building xofikit..."
 	@make build
 	@echo "[INFO] Setting executable permissions..."

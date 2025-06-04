@@ -3,7 +3,7 @@ options:
   - code: "pst"
     label: "open project in tmux"
     command: |
-      cd ~/devspace/
+      cd ~
       dir=$(find . -type d | sed 's|^\./||' | rofi -dmenu -p "open project:")
       [ -z "$dir" ] && exit
       full_path="$(realpath "$dir")"
